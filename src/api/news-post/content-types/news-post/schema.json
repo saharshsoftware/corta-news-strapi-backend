@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_posts",
+  "info": {
+    "singularName": "news-post",
+    "pluralName": "news-posts",
+    "displayName": "NewsPost",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "englishSummary": {
+      "type": "text"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "englishTitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "imageURL": {
+      "type": "string"
+    },
+    "publicationDate": {
+      "type": "date"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "source": {
+      "type": "string"
+    },
+    "shortenedBy": {
+      "type": "string",
+      "default": "Stavros Lee"
+    },
+    "categories": {
+      "type": "text"
+    },
+    "locations": {
+      "type": "text"
+    },
+    "shortenedByPhotoURL": {
+      "type": "string"
+    },
+    "groupId": {
+      "type": "string",
+      "default": "Puerto Rico",
+      "required": true
+    },
+    "originalContent": {
+      "type": "text",
+      "private": true
+    },
+    "isDuplicate": {
+      "type": "boolean",
+      "default": false
+    },
+    "duplicatedBy": {
+      "type": "integer",
+      "private": true
+    },
+    "enSlug": {
+      "type": "uid",
+      "targetField": "englishTitle",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "entities": {
+      "type": "text"
+    },
+    "embeddings": {
+      "type": "json"
+    }
+  }
+}

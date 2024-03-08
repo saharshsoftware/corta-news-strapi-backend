@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_offerings",
+  "info": {
+    "singularName": "our-offering",
+    "pluralName": "our-offerings",
+    "displayName": "OurOffering",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offers": {
+      "displayName": "offerings",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.offerings"
+    }
+  }
+}

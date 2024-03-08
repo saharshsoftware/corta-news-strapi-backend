@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organisation_projects",
+  "info": {
+    "singularName": "organisation-project",
+    "pluralName": "organisation-projects",
+    "displayName": "OrganisationProject",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project_link": {
+      "type": "string"
+    },
+    "project_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "long_desc": {
+      "type": "richtext"
+    },
+    "client": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "parent_project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::parent-project.parent-project",
+      "inversedBy": "organisation_projects"
+    },
+    "techstack": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "short_desc": {
+      "type": "richtext"
+    }
+  }
+}

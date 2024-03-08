@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "why_choose_uses",
+  "info": {
+    "singularName": "why-choose-us",
+    "pluralName": "why-choose-uses",
+    "displayName": "WhyChooseUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.image-description"
+    }
+  }
+}

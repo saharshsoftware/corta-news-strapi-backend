@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feed_sources",
+  "info": {
+    "singularName": "feed-source",
+    "pluralName": "feed-sources",
+    "displayName": "FeedSource",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "cronExp": {
+      "type": "string",
+      "required": true
+    },
+    "logs": {
+      "type": "json"
+    },
+    "groupId": {
+      "type": "string",
+      "required": true,
+      "default": "Puerto Rico"
+    }
+  }
+}

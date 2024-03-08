@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_components_images",
+  "info": {
+    "displayName": "image",
+    "icon": "collapse",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "project_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "project_link": {
+      "type": "string"
+    },
+    "project_desc": {
+      "type": "richtext"
+    },
+    "client": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

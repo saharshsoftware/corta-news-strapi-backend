@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_components_navlinks",
+  "info": {
+    "displayName": "pairs",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "route": {
+      "type": "string"
+    }
+  }
+}

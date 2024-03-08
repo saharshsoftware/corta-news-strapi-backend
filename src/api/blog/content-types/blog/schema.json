@@ -23,6 +23,21 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "blogs"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

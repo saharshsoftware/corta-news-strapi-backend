@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_locations",
+  "info": {
+    "displayName": "social_links",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "twitter": {
+      "type": "string"
+    },
+    "linkedIn": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    }
+  }
+}

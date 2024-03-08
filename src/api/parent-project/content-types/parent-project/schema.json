@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parent_projects",
+  "info": {
+    "singularName": "parent-project",
+    "pluralName": "parent-projects",
+    "displayName": "ParentProject",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "organisation_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::organisation-project.organisation-project",
+      "mappedBy": "parent_project"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "label"
+    },
+    "desc": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "short_desc": {
+      "type": "richtext"
+    },
+    "sort": {
+      "type": "integer"
+    }
+  }
+}

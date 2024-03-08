@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "project_images",
+  "info": {
+    "singularName": "project-image",
+    "pluralName": "project-images",
+    "displayName": "ProjectImage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "client_projects": {
+      "displayName": "image",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.image"
+    }
+  }
+}

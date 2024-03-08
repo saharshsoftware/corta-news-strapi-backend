@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_logo_partner_logos",
+  "info": {
+    "displayName": "partner_logo",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

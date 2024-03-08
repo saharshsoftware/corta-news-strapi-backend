@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_companies",
+  "info": {
+    "singularName": "about-company",
+    "pluralName": "about-companies",
+    "displayName": "AboutCompany"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mision": {
+      "type": "richtext"
+    },
+    "vision": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "join_teams",
+  "info": {
+    "singularName": "join-team",
+    "pluralName": "join-teams",
+    "displayName": "JoinTeam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}

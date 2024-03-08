@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_image_descriptions",
+  "info": {
+    "displayName": "image_description",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

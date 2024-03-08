@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "product_engineerings",
+  "info": {
+    "singularName": "product-engineering",
+    "pluralName": "product-engineerings",
+    "displayName": "ProductEngineering"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "trusted_partners",
+  "info": {
+    "singularName": "trusted-partner",
+    "pluralName": "trusted-partners",
+    "displayName": "TrustedPartner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.logo"
+    }
+  }
+}
