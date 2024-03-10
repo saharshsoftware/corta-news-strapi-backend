@@ -85,6 +85,9 @@
     },
     "embeddings": {
       "type": "json"
+    },
+    "language": {
+      "type": "string"
     }
   }
 }

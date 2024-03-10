@@ -1298,6 +1298,7 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     slug: Attribute.UID<'api::news-post.news-post', 'title'>;
     entities: Attribute.Text;
     embeddings: Attribute.JSON;
+    language: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
