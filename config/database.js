@@ -6,11 +6,15 @@ module.exports = ({ env }) => {
   const connections = {
     postgres: {
       connection: {
-        host: env("DATABASE_HOST", "strapi-database.cneue8sw4uup.ap-northeast-1.rds.amazonaws.com"),
-        port: env.int("DATABASE_PORT", 5432),
-        database: env("DATABASE_NAME", "strapi"),
-        user: env("DATABASE_USERNAME", "postgres"),
-        password: env("DATABASE_PASSWORD", "postgres123"),
+        host: env("DATABASE_HOST", "corta-news-strapi-db.c9e0q2igi31s.us-east-1.rds.amazonaws.com"),
+        port: env.int("DATABASE_PORT"),
+        database: env("DATABASE_NAME"),
+        user: env("DATABASE_USERNAME"),
+        password: env("DATABASE_PASSWORD"),
+        ssl: {
+          require: true,
+          rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
+        },
       },
       pool: {
         min: 0,
@@ -22,6 +26,7 @@ module.exports = ({ env }) => {
         reapIntervalMillis: 1000,
         createRetryIntervalMillis: 2000
       },
+      useNullAsDefault: true,
     },
     sqlite: {
       connection: {
