@@ -1299,6 +1299,8 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     entities: Attribute.Text;
     embeddings: Attribute.JSON;
     language: Attribute.String;
+    photoURL: Attribute.String;
+    smallPhotoURL: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

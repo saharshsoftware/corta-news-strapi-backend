@@ -88,6 +88,12 @@
     },
     "language": {
       "type": "string"
+    },
+    "photoURL": {
+      "type": "string"
+    },
+    "smallPhotoURL": {
+      "type": "string"
     }
   }
 }

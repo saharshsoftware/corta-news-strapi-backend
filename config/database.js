@@ -6,7 +6,7 @@ module.exports = ({ env }) => {
   const connections = {
     postgres: {
       connection: {
-        host: env("DATABASE_HOST", "corta-news-strapi-db.c9e0q2igi31s.us-east-1.rds.amazonaws.com"),
+        host: env("DATABASE_HOST"),
         port: env.int("DATABASE_PORT"),
         database: env("DATABASE_NAME"),
         user: env("DATABASE_USERNAME"),
