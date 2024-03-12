@@ -17,18 +17,6 @@
       "required": true,
       "unique": true
     },
-    "englishSummary": {
-      "type": "text"
-    },
-    "summary": {
-      "type": "text"
-    },
-    "englishTitle": {
-      "type": "string"
-    },
-    "title": {
-      "type": "string"
-    },
     "imageURL": {
       "type": "string"
     },
@@ -75,10 +63,6 @@
       "type": "uid",
       "required": true,
       "targetField": "enTitle"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
     },
     "entities": {
       "type": "text"

@@ -1314,10 +1314,6 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
   };
   attributes: {
     link: Attribute.String & Attribute.Required & Attribute.Unique;
-    englishSummary: Attribute.Text;
-    summary: Attribute.Text;
-    englishTitle: Attribute.String;
-    title: Attribute.String;
     imageURL: Attribute.String;
     publicationDate: Attribute.Date;
     keywords: Attribute.Text;
@@ -1334,7 +1330,6 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     duplicatedBy: Attribute.Integer & Attribute.Private;
     enSlug: Attribute.UID<'api::news-post.news-post', 'enTitle'> &
       Attribute.Required;
-    slug: Attribute.UID<'api::news-post.news-post', 'title'>;
     entities: Attribute.Text;
     embeddings: Attribute.JSON;
     language: Attribute.String;
