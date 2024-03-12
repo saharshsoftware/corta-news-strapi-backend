@@ -74,7 +74,7 @@
     "enSlug": {
       "type": "uid",
       "required": true,
-      "targetField": "englishTitle"
+      "targetField": "enTitle"
     },
     "slug": {
       "type": "uid",
@@ -108,7 +108,8 @@
       "type": "text"
     },
     "esSlug": {
-      "type": "string"
+      "type": "uid",
+      "targetField": "esTitle"
     }
   }
 }

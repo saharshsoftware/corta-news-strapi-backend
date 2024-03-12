@@ -1332,7 +1332,7 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     originalContent: Attribute.Text & Attribute.Private;
     isDuplicate: Attribute.Boolean & Attribute.DefaultTo<false>;
     duplicatedBy: Attribute.Integer & Attribute.Private;
-    enSlug: Attribute.UID<'api::news-post.news-post', 'englishTitle'> &
+    enSlug: Attribute.UID<'api::news-post.news-post', 'enTitle'> &
       Attribute.Required;
     slug: Attribute.UID<'api::news-post.news-post', 'title'>;
     entities: Attribute.Text;
@@ -1344,7 +1344,7 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     enSummary: Attribute.Text;
     esTitle: Attribute.String;
     esSummary: Attribute.Text;
-    esSlug: Attribute.String;
+    esSlug: Attribute.UID<'api::news-post.news-post', 'esTitle'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
