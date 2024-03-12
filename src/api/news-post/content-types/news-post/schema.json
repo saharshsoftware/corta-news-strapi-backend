@@ -99,13 +99,13 @@
       "type": "string"
     },
     "enSummary": {
-      "type": "string"
+      "type": "text"
     },
     "esTitle": {
       "type": "string"
     },
     "esSummary": {
-      "type": "string"
+      "type": "text"
     },
     "esSlug": {
       "type": "string"
