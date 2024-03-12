@@ -31,6 +31,10 @@
       "type": "string",
       "required": true,
       "default": "Puerto Rico"
+    },
+    "language": {
+      "type": "string",
+      "default": "es"
     }
   }
 }

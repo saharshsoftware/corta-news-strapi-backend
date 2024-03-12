@@ -73,8 +73,8 @@
     },
     "enSlug": {
       "type": "uid",
-      "targetField": "englishTitle",
-      "required": true
+      "required": true,
+      "targetField": "englishTitle"
     },
     "slug": {
       "type": "uid",
@@ -93,6 +93,21 @@
       "type": "string"
     },
     "smallPhotoURL": {
+      "type": "string"
+    },
+    "enTitle": {
+      "type": "string"
+    },
+    "enSummary": {
+      "type": "string"
+    },
+    "esTitle": {
+      "type": "string"
+    },
+    "esSummary": {
+      "type": "string"
+    },
+    "esSlug": {
       "type": "string"
     }
   }

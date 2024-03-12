@@ -45,6 +45,15 @@
       "type": "string",
       "required": true,
       "default": "Puerto Rico"
+    },
+    "language": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "es"
     }
   }
 }

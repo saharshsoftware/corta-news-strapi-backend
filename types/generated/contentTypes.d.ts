@@ -1014,6 +1014,7 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
     groupId: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'Puerto Rico'>;
+    language: Attribute.String & Attribute.DefaultTo<'es'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1135,6 +1136,37 @@ export interface ApiJoinTeamJoinTeam extends Schema.SingleType {
   };
 }
 
+export interface ApiLanguageLanguage extends Schema.CollectionType {
+  collectionName: 'languages';
+  info: {
+    singularName: 'language';
+    pluralName: 'languages';
+    displayName: 'Language';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    displayName: Attribute.String & Attribute.Required;
+    code: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNavbarNavbar extends Schema.SingleType {
   collectionName: 'navbars';
   info: {
@@ -1238,6 +1270,13 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'Puerto Rico'>;
+    language: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'es'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1301,6 +1340,11 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     language: Attribute.String;
     photoURL: Attribute.String;
     smallPhotoURL: Attribute.String;
+    enTitle: Attribute.String;
+    enSummary: Attribute.String;
+    esTitle: Attribute.String;
+    esSummary: Attribute.String;
+    esSlug: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1688,6 +1732,7 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::join-team.join-team': ApiJoinTeamJoinTeam;
+      'api::language.language': ApiLanguageLanguage;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::news-category.news-category': ApiNewsCategoryNewsCategory;
       'api::news-link.news-link': ApiNewsLinkNewsLink;
