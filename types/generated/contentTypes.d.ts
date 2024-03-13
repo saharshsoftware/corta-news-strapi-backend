@@ -1475,6 +1475,35 @@ export interface ApiParentProjectParentProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrivacyPolicyPrivacyPolicy extends Schema.SingleType {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'PrivacyPolicy';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    privacy: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy-policy.privacy-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductEngineeringProductEngineering
   extends Schema.SingleType {
   collectionName: 'product_engineerings';
@@ -1735,6 +1764,7 @@ declare module '@strapi/types' {
       'api::organisation-project.organisation-project': ApiOrganisationProjectOrganisationProject;
       'api::our-offering.our-offering': ApiOurOfferingOurOffering;
       'api::parent-project.parent-project': ApiParentProjectParentProject;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product-engineering.product-engineering': ApiProductEngineeringProductEngineering;
       'api::project-image.project-image': ApiProjectImageProjectImage;
       'api::region.region': ApiRegionRegion;
