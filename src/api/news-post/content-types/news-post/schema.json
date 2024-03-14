@@ -18,7 +18,8 @@
       "unique": true
     },
     "imageURL": {
-      "type": "string"
+      "type": "string",
+      "private": true
     },
     "publicationDate": {
       "type": "date"

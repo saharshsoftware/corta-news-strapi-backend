@@ -1314,7 +1314,7 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
   };
   attributes: {
     link: Attribute.String & Attribute.Required & Attribute.Unique;
-    imageURL: Attribute.String;
+    imageURL: Attribute.String & Attribute.Private;
     publicationDate: Attribute.Date;
     keywords: Attribute.Text;
     source: Attribute.String;
