@@ -1330,8 +1330,8 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     duplicatedBy: Attribute.Integer & Attribute.Private;
     enSlug: Attribute.UID<'api::news-post.news-post', 'enTitle'> &
       Attribute.Required;
-    entities: Attribute.Text;
-    embeddings: Attribute.JSON;
+    entities: Attribute.Text & Attribute.Private;
+    embeddings: Attribute.JSON & Attribute.Private;
     language: Attribute.String;
     photoURL: Attribute.String;
     smallPhotoURL: Attribute.String;

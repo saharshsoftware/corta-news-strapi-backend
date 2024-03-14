@@ -65,10 +65,12 @@
       "targetField": "enTitle"
     },
     "entities": {
-      "type": "text"
+      "type": "text",
+      "private": true
     },
     "embeddings": {
-      "type": "json"
+      "type": "json",
+      "private": true
     },
     "language": {
       "type": "string"
