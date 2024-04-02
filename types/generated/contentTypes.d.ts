@@ -1633,6 +1633,27 @@ export interface ApiStaffAugmentationStaffAugmentation
   };
 }
 
+export interface ApiTermTerm extends Schema.SingleType {
+  collectionName: 'terms';
+  info: {
+    singularName: 'term';
+    pluralName: 'terms';
+    displayName: 'Term';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    terms: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::term.term', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::term.term', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1770,6 +1791,7 @@ declare module '@strapi/types' {
       'api::project-image.project-image': ApiProjectImageProjectImage;
       'api::region.region': ApiRegionRegion;
       'api::staff-augmentation.staff-augmentation': ApiStaffAugmentationStaffAugmentation;
+      'api::term.term': ApiTermTerm;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::trusted-partner.trusted-partner': ApiTrustedPartnerTrustedPartner;
       'api::why-choose-us.why-choose-us': ApiWhyChooseUsWhyChooseUs;
