@@ -996,6 +996,39 @@ export interface ApiCronJobCronJob extends Schema.CollectionType {
   };
 }
 
+export interface ApiEntityEntity extends Schema.CollectionType {
+  collectionName: 'entities';
+  info: {
+    singularName: 'entity';
+    pluralName: 'entities';
+    displayName: 'Entity';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    source: Attribute.Text;
+    archive: Attribute.Text;
+    aiGenerated: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::entity.entity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::entity.entity',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
   collectionName: 'feed_sources';
   info: {
@@ -1278,6 +1311,12 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'es'>;
+    error: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1774,6 +1813,7 @@ declare module '@strapi/types' {
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::contact-user.contact-user': ApiContactUserContactUser;
       'api::cron-job.cron-job': ApiCronJobCronJob;
+      'api::entity.entity': ApiEntityEntity;
       'api::feed-source.feed-source': ApiFeedSourceFeedSource;
       'api::footer.footer': ApiFooterFooter;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;

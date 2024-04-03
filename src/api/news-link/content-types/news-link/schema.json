@@ -54,6 +54,14 @@
       },
       "type": "string",
       "default": "es"
+    },
+    "error": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
