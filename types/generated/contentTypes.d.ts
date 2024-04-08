@@ -910,7 +910,7 @@ export interface ApiContactUsContactUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    message: Attribute.Text;
+    message: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
