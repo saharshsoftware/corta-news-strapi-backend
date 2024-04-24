@@ -13,7 +13,7 @@ module.exports = {
       sort: 'updatedAt:desc',
       filters: {
         updatedAt: {
-          $gte: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+          $gte: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
         }
       }
     });
@@ -37,8 +37,9 @@ module.exports = {
    * @param {string} [lang]
    */
   generateSitemapUrl (newsPost, lang) {
+    const langSlug = `${lang}Slug`
     return `<url>
-      <loc>${CLIENT_URL}/news/${lang === 'es' ? newsPost.esSlug : newsPost.enSlug}</loc>
+      <loc>${CLIENT_URL}/news/${newsPost[langSlug]}</loc>
       <lastmod>${newsPost.updatedAt}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
