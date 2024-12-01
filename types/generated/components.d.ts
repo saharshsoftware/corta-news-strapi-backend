@@ -38,8 +38,10 @@ export interface ComponentsLanguage extends Schema.Component {
     description: '';
   };
   attributes: {
-    code: Attribute.Enumeration<['EN', 'AR', 'ES', 'HI']>;
-    name: Attribute.Enumeration<['Hindi', 'English', 'Arabic', 'Urdu']>;
+    code: Attribute.Enumeration<['EN', 'AR', 'ES', 'HI', 'UR']>;
+    name: Attribute.Enumeration<
+      ['Hindi', 'English', 'Arabic', 'Urdu', 'Spanish']
+    >;
   };
 }
 
