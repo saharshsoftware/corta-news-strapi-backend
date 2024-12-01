@@ -24,9 +24,6 @@
     "publicationDate": {
       "type": "date"
     },
-    "keywords": {
-      "type": "text"
-    },
     "source": {
       "type": "string"
     },
@@ -34,19 +31,8 @@
       "type": "string",
       "default": "Stavros Lee"
     },
-    "categories": {
-      "type": "text"
-    },
-    "locations": {
-      "type": "text"
-    },
     "shortenedByPhotoURL": {
       "type": "string"
-    },
-    "groupId": {
-      "type": "string",
-      "default": "Puerto Rico",
-      "required": true
     },
     "originalContent": {
       "type": "text",
@@ -58,15 +44,6 @@
     },
     "duplicatedBy": {
       "type": "integer",
-      "private": true
-    },
-    "enSlug": {
-      "type": "uid",
-      "required": true,
-      "targetField": "enTitle"
-    },
-    "entities": {
-      "type": "text",
       "private": true
     },
     "embeddings": {
@@ -82,21 +59,26 @@
     "smallPhotoURL": {
       "type": "string"
     },
-    "enTitle": {
+    "keywords": {
+      "type": "json"
+    },
+    "categories": {
+      "type": "json"
+    },
+    "entities": {
       "type": "string"
     },
-    "enSummary": {
-      "type": "text"
-    },
-    "esTitle": {
+    "locations": {
       "type": "string"
     },
-    "esSummary": {
-      "type": "text"
+    "title": {
+      "type": "json"
     },
-    "esSlug": {
-      "type": "uid",
-      "targetField": "esTitle"
+    "summary": {
+      "type": "json"
+    },
+    "country": {
+      "type": "string"
     }
   }
 }

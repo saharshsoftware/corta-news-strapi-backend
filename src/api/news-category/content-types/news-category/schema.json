@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-category",
     "pluralName": "news-categories",
-    "displayName": "NewsCategory"
+    "displayName": "NewsCategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,9 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string",
-      "required": true,
-      "unique": true
+      "type": "json",
+      "required": true
     }
   }
 }

@@ -1077,6 +1077,42 @@ export interface ApiContactUserContactUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCountryCountry extends Schema.CollectionType {
+  collectionName: 'countries';
+  info: {
+    singularName: 'country';
+    pluralName: 'countries';
+    displayName: 'Country';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    languages: Attribute.Component<'components.language', true>;
+    flag: Attribute.Media;
+    activationDate: Attribute.Date & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiCronJobCronJob extends Schema.CollectionType {
   collectionName: 'cron_jobs';
   info: {
@@ -1166,10 +1202,14 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
     name: Attribute.String;
     cronExp: Attribute.String & Attribute.Required;
     logs: Attribute.JSON;
-    groupId: Attribute.String &
+    country: Attribute.Enumeration<['India', 'UAE', 'Puerto Rico']>;
+    isRss: Attribute.Boolean & Attribute.DefaultTo<false>;
+    languages: Attribute.Component<'components.language', true> &
       Attribute.Required &
-      Attribute.DefaultTo<'Puerto Rico'>;
-    language: Attribute.String & Attribute.DefaultTo<'es'>;
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+    excludedSitemapURLs: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1378,12 +1418,13 @@ export interface ApiNewsCategoryNewsCategory extends Schema.CollectionType {
     singularName: 'news-category';
     pluralName: 'news-categories';
     displayName: 'NewsCategory';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    name: Attribute.JSON & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1416,49 +1457,18 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    processed: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<false>;
-    link: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    groupId: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<'Puerto Rico'>;
-    language: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.DefaultTo<'es'>;
-    error: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    link: Attribute.String & Attribute.Unique;
+    processed: Attribute.Boolean & Attribute.DefaultTo<false>;
+    error: Attribute.Text;
+    country: Attribute.String;
+    languages: Attribute.JSON;
+    publicationDate: Attribute.DateTime;
+    feedSource: Attribute.Relation<
+      'api::news-link.news-link',
+      'oneToOne',
+      'api::feed-source.feed-source'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1474,12 +1484,6 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::news-link.news-link',
-      'oneToMany',
-      'api::news-link.news-link'
-    >;
-    locale: Attribute.String;
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
@@ -1501,30 +1505,23 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     link: Attribute.String & Attribute.Required & Attribute.Unique;
     imageURL: Attribute.String & Attribute.Private;
     publicationDate: Attribute.Date;
-    keywords: Attribute.Text;
     source: Attribute.String;
     shortenedBy: Attribute.String & Attribute.DefaultTo<'Stavros Lee'>;
-    categories: Attribute.Text;
-    locations: Attribute.Text;
     shortenedByPhotoURL: Attribute.String;
-    groupId: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'Puerto Rico'>;
     originalContent: Attribute.Text & Attribute.Private;
     isDuplicate: Attribute.Boolean & Attribute.DefaultTo<false>;
     duplicatedBy: Attribute.Integer & Attribute.Private;
-    enSlug: Attribute.UID<'api::news-post.news-post', 'enTitle'> &
-      Attribute.Required;
-    entities: Attribute.Text & Attribute.Private;
     embeddings: Attribute.JSON & Attribute.Private;
     language: Attribute.String;
     photoURL: Attribute.String;
     smallPhotoURL: Attribute.String;
-    enTitle: Attribute.String;
-    enSummary: Attribute.Text;
-    esTitle: Attribute.String;
-    esSummary: Attribute.Text;
-    esSlug: Attribute.UID<'api::news-post.news-post', 'esTitle'>;
+    keywords: Attribute.JSON;
+    categories: Attribute.JSON;
+    entities: Attribute.String;
+    locations: Attribute.String;
+    title: Attribute.JSON;
+    summary: Attribute.JSON;
+    country: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1772,44 +1769,6 @@ export interface ApiProjectImageProjectImage extends Schema.SingleType {
   };
 }
 
-export interface ApiRegionRegion extends Schema.CollectionType {
-  collectionName: 'regions';
-  info: {
-    singularName: 'region';
-    pluralName: 'regions';
-    displayName: 'Region';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.DefaultTo<'Puerto Rico'>;
-    activationDate: Attribute.Date;
-    flag: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::region.region',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::region.region',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    sitemap_exclude: Attribute.Boolean &
-      Attribute.Private &
-      Attribute.DefaultTo<false>;
-  };
-}
-
 export interface ApiStaffAugmentationStaffAugmentation
   extends Schema.SingleType {
   collectionName: 'staff_augmentations';
@@ -1998,6 +1957,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::contact-user.contact-user': ApiContactUserContactUser;
+      'api::country.country': ApiCountryCountry;
       'api::cron-job.cron-job': ApiCronJobCronJob;
       'api::entity.entity': ApiEntityEntity;
       'api::feed-source.feed-source': ApiFeedSourceFeedSource;
@@ -2015,7 +1975,6 @@ declare module '@strapi/types' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product-engineering.product-engineering': ApiProductEngineeringProductEngineering;
       'api::project-image.project-image': ApiProjectImageProjectImage;
-      'api::region.region': ApiRegionRegion;
       'api::staff-augmentation.staff-augmentation': ApiStaffAugmentationStaffAugmentation;
       'api::term.term': ApiTermTerm;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

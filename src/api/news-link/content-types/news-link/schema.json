@@ -10,58 +10,32 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
-    "processed": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
     "link": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "type": "string",
-      "required": true,
       "unique": true
     },
-    "groupId": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "required": true,
-      "default": "Puerto Rico"
-    },
-    "language": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "default": "es"
+    "processed": {
+      "type": "boolean",
+      "default": false
     },
     "error": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "type": "text"
+    },
+    "country": {
       "type": "string"
+    },
+    "languages": {
+      "type": "json"
+    },
+    "publicationDate": {
+      "type": "datetime"
+    },
+    "feedSource": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::feed-source.feed-source"
     }
   }
 }

@@ -27,14 +27,27 @@
     "logs": {
       "type": "json"
     },
-    "groupId": {
-      "type": "string",
-      "required": true,
-      "default": "Puerto Rico"
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "India",
+        "UAE",
+        "Puerto Rico"
+      ]
     },
-    "language": {
-      "type": "string",
-      "default": "es"
+    "isRss": {
+      "type": "boolean",
+      "default": false
+    },
+    "languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.language",
+      "required": true,
+      "min": 1
+    },
+    "excludedSitemapURLs": {
+      "type": "json"
     }
   }
 }

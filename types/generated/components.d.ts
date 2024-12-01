@@ -31,6 +31,18 @@ export interface ComponentsImage extends Schema.Component {
   };
 }
 
+export interface ComponentsLanguage extends Schema.Component {
+  collectionName: 'components_components_languages';
+  info: {
+    displayName: 'Language';
+    description: '';
+  };
+  attributes: {
+    code: Attribute.Enumeration<['EN', 'AR', 'ES', 'HI']>;
+    name: Attribute.Enumeration<['Hindi', 'English', 'Arabic', 'Urdu']>;
+  };
+}
+
 export interface ComponentsLocation extends Schema.Component {
   collectionName: 'components_components_locations';
   info: {
@@ -114,6 +126,7 @@ declare module '@strapi/types' {
     export interface Components {
       'components.image-description': ComponentsImageDescription;
       'components.image': ComponentsImage;
+      'components.language': ComponentsLanguage;
       'components.location': ComponentsLocation;
       'components.logo': ComponentsLogo;
       'components.navlinks': ComponentsNavlinks;

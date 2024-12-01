@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_languages",
+  "info": {
+    "displayName": "Language",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "enumeration",
+      "enum": [
+        "EN",
+        "AR",
+        "ES",
+        "HI"
+      ]
+    },
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "Hindi",
+        "English",
+        "Arabic",
+        "Urdu"
+      ]
+    }
+  }
+}
