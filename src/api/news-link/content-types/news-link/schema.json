@@ -23,12 +23,6 @@
     "error": {
       "type": "text"
     },
-    "country": {
-      "type": "string"
-    },
-    "languages": {
-      "type": "json"
-    },
     "publicationDate": {
       "type": "datetime"
     },

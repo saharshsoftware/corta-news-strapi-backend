@@ -18,7 +18,8 @@
       "unique": true
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "cronExp": {
       "type": "string",
@@ -27,27 +28,17 @@
     "logs": {
       "type": "json"
     },
-    "country": {
-      "type": "enumeration",
-      "enum": [
-        "India",
-        "UAE",
-        "Puerto Rico"
-      ]
-    },
     "isRss": {
       "type": "boolean",
       "default": false
     },
-    "languages": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.language",
-      "required": true,
-      "min": 1
-    },
     "excludedSitemapURLs": {
       "type": "json"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
     }
   }
 }

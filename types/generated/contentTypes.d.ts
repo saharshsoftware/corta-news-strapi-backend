@@ -914,6 +914,11 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     photo: Attribute.Media;
+    country: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'api::country.country'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1199,17 +1204,16 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
   };
   attributes: {
     link: Attribute.String & Attribute.Required & Attribute.Unique;
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required;
     cronExp: Attribute.String & Attribute.Required;
     logs: Attribute.JSON;
-    country: Attribute.Enumeration<['India', 'UAE', 'Puerto Rico']>;
     isRss: Attribute.Boolean & Attribute.DefaultTo<false>;
-    languages: Attribute.Component<'components.language', true> &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 1;
-      }>;
     excludedSitemapURLs: Attribute.JSON;
+    country: Attribute.Relation<
+      'api::feed-source.feed-source',
+      'oneToOne',
+      'api::country.country'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1461,8 +1465,6 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
     link: Attribute.String & Attribute.Unique;
     processed: Attribute.Boolean & Attribute.DefaultTo<false>;
     error: Attribute.Text;
-    country: Attribute.String;
-    languages: Attribute.JSON;
     publicationDate: Attribute.DateTime;
     feedSource: Attribute.Relation<
       'api::news-link.news-link',
