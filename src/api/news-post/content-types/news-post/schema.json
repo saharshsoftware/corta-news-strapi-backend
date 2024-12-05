@@ -62,9 +62,6 @@
     "keywords": {
       "type": "json"
     },
-    "categories": {
-      "type": "json"
-    },
     "entities": {
       "type": "string"
     },
@@ -78,6 +75,9 @@
       "type": "json"
     },
     "country": {
+      "type": "string"
+    },
+    "categories": {
       "type": "string"
     }
   }

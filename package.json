@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "ssh": "ssh -i 'corta-news-strapi-backend.pem' ubuntu@ec2-3-82-112-251.compute-1.amazonaws.com"
+    "ssh": "ssh -i '../corta-news-strapi-backend.pem' ubuntu@ec2-3-83-68-19.compute-1.amazonaws.com"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.16.2",

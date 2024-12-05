@@ -1518,12 +1518,12 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     photoURL: Attribute.String;
     smallPhotoURL: Attribute.String;
     keywords: Attribute.JSON;
-    categories: Attribute.JSON;
     entities: Attribute.String;
     locations: Attribute.String;
     title: Attribute.JSON;
     summary: Attribute.JSON;
     country: Attribute.String;
+    categories: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
