@@ -1506,7 +1506,7 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
   attributes: {
     link: Attribute.String & Attribute.Required & Attribute.Unique;
     imageURL: Attribute.String & Attribute.Private;
-    publicationDate: Attribute.Date;
+    publicationDate: Attribute.DateTime;
     source: Attribute.String;
     shortenedBy: Attribute.String & Attribute.DefaultTo<'Stavros Lee'>;
     shortenedByPhotoURL: Attribute.String;
