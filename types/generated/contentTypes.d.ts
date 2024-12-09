@@ -1523,6 +1523,11 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     summary: Attribute.JSON;
     country: Attribute.String;
     categories: Attribute.String;
+    type: Attribute.String & Attribute.DefaultTo<'news'>;
+    importanceScore: Attribute.Integer &
+      Attribute.Required &
+      Attribute.DefaultTo<5>;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

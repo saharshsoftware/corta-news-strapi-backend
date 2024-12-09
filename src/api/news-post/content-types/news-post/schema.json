@@ -76,6 +76,21 @@
     },
     "categories": {
       "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "required": false,
+      "default": "news"
+    },
+    "importanceScore": {
+      "type": "integer",
+      "required": true,
+      "default": 5
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
