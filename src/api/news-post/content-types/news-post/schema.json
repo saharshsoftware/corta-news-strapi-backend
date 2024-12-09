@@ -50,9 +50,6 @@
       "type": "json",
       "private": true
     },
-    "language": {
-      "type": "string"
-    },
     "photoURL": {
       "type": "string"
     },

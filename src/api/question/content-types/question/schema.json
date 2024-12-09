@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "json"
+    },
+    "options": {
+      "type": "json",
+      "required": true
+    },
+    "correctOption": {
+      "type": "string",
+      "required": true
+    },
+    "newsPost": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::news-post.news-post"
+    }
+  }
+}

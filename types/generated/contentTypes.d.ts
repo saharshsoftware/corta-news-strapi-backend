@@ -1514,7 +1514,6 @@ export interface ApiNewsPostNewsPost extends Schema.CollectionType {
     isDuplicate: Attribute.Boolean & Attribute.DefaultTo<false>;
     duplicatedBy: Attribute.Integer & Attribute.Private;
     embeddings: Attribute.JSON & Attribute.Private;
-    language: Attribute.String;
     photoURL: Attribute.String;
     smallPhotoURL: Attribute.String;
     keywords: Attribute.JSON;
@@ -1771,6 +1770,46 @@ export interface ApiProjectImageProjectImage extends Schema.SingleType {
   };
 }
 
+export interface ApiQuestionQuestion extends Schema.CollectionType {
+  collectionName: 'questions';
+  info: {
+    singularName: 'question';
+    pluralName: 'questions';
+    displayName: 'Question';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.JSON;
+    options: Attribute.JSON & Attribute.Required;
+    correctOption: Attribute.String & Attribute.Required;
+    newsPost: Attribute.Relation<
+      'api::question.question',
+      'oneToOne',
+      'api::news-post.news-post'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::question.question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::question.question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiStaffAugmentationStaffAugmentation
   extends Schema.SingleType {
   collectionName: 'staff_augmentations';
@@ -1977,6 +2016,7 @@ declare module '@strapi/types' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::product-engineering.product-engineering': ApiProductEngineeringProductEngineering;
       'api::project-image.project-image': ApiProjectImageProjectImage;
+      'api::question.question': ApiQuestionQuestion;
       'api::staff-augmentation.staff-augmentation': ApiStaffAugmentationStaffAugmentation;
       'api::term.term': ApiTermTerm;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
