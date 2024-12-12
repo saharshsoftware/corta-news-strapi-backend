@@ -19,7 +19,7 @@ module.exports = {
         },
         populate: {
           newsPost: {
-            fields: ['country', 'title', 'source', 'summary', 'publicationDate'], // Only fetch 'country' and 'title' from newsPost
+            fields: ['country', 'title', 'source', 'summary', 'publicationDate', 'categories', 'shortenedByPhotoURL', 'shortenedBy', 'smallPhotoURL', 'link'],
           },
         },
         sort: { createdAt: 'desc' }, // Sort by createdAt (descending)
