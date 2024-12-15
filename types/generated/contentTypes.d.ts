@@ -1203,7 +1203,6 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    link: Attribute.String & Attribute.Required & Attribute.Unique;
     name: Attribute.String & Attribute.Required;
     cronExp: Attribute.String & Attribute.Required;
     logs: Attribute.JSON;
@@ -1214,6 +1213,7 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
       'oneToOne',
       'api::country.country'
     >;
+    sitemapLinks: Attribute.JSON & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

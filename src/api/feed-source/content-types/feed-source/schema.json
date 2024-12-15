@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "link": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "name": {
       "type": "string",
       "required": true
@@ -39,6 +34,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::country.country"
+    },
+    "sitemapLinks": {
+      "type": "json",
+      "required": true
     }
   }
 }
