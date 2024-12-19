@@ -5,9 +5,9 @@ module.exports = {
     page = parseInt(page, 10);
     pageSize = parseInt(pageSize, 10);
 
-    // Calculate 48-hour filter for publicationDate
+    // Calculate 24-hour filter for publicationDate
     const now = new Date();
-    const past48Hours = new Date(now.getTime() - 48 * 60 * 60 * 1000);
+    const past48Hours = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
     // Filters
     const filters = {
@@ -45,8 +45,8 @@ module.exports = {
         strapi.entityService.findMany('api::news-post.news-post', {
           filters,
           sort: [
-            { importanceScore: 'desc' },
             { publicationDate: 'desc' },
+            { importanceScore: 'desc' },
           ],
           start,
           limit,
