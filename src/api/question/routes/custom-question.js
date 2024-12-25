@@ -5,7 +5,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/questions/random',
-      handler: 'custom.findRandomQuestions',
+      handler: 'custom-question.findRandomQuestions',
       config: {
         policies: [], // Add authentication policies if needed
       },

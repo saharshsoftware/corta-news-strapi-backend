@@ -1,13 +1,13 @@
 module.exports = {
   async fetchNews(ctx) {
-    const { country, categories, types, excludeNewsIds } = ctx.query;
+    const { country, includedCategories, excludedCategories, includedTypes = 'news', excludedTypes, excludeNewsIds } = ctx.query;
     let { page = 1, pageSize = 40 } = ctx.query;
     page = parseInt(page, 10);
     pageSize = parseInt(pageSize, 10);
 
-    // Calculate 24-hour filter for publicationDate
+    // Calculate 48-hour filter for publicationDate
     const now = new Date();
-    const past48Hours = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    const past48Hours = new Date(now.getTime() - 48 * 60 * 60 * 1000);
 
     // Filters
     const filters = {
@@ -15,25 +15,53 @@ module.exports = {
       publicationDate: { $gte: past48Hours },
     };
 
-    // Add optional category filter
-    if (categories) {
-      const categoryArray = categories.split(',');
-      filters.$or = categoryArray.map((category) => ({
-        categories: { $contains: category }, // Ensures at least one category matches
-      }));
+    // Add includedCategories filter
+    if (includedCategories) {
+      const categoryArray = includedCategories.split(',');
+      filters.$and = filters.$and || [];
+      filters.$and.push({
+        $or: categoryArray.map((category) => ({
+          categories: { $contains: category }, // Ensures at least one included category matches
+        })),
+      });
     }
 
-    // Add optional types filter
-    if (types) {
-      filters.type = { $in: types.split(',') }; // Assumes types are passed as a comma-separated list
-    } else {
-      filters.type = { $eq: 'news' }; // Default to 'news' if not provided
+    // Add excludedCategories filter
+    if (excludedCategories) {
+      const excludedCategoryArray = excludedCategories.split(',');
+      filters.$and = filters.$and || [];
+      excludedCategoryArray.forEach((excludedCategory) => {
+        filters.$and.push({
+          categories: { $notContains: excludedCategory }, // Excludes categories that contain the string
+        });
+      });
+    }
+
+    // Add includedTypes filter
+    if (includedTypes) {
+      const includedTypeArray = includedTypes.split(',');
+      filters.$and = filters.$and || [];
+      filters.$and.push({
+        type: { $contains: includedTypeArray }, // Includes specific types
+      });
+    }
+
+    // Add excludedTypes filter
+    if (excludedTypes) {
+      const excludedTypeArray = excludedTypes.split(',');
+      filters.$and = filters.$and || [];
+      filters.$and.push({
+        type: { $notContains: excludedTypeArray }, // Excludes specific types
+      });
     }
 
     // Exclude specific news IDs if provided
     if (excludeNewsIds) {
       const excludeIdsArray = excludeNewsIds.split(',').map((id) => parseInt(id, 10));
-      filters.id = { $notIn: excludeIdsArray };
+      filters.$and = filters.$and || [];
+      filters.$and.push({
+        id: { $notIn: excludeIdsArray },
+      });
     }
 
     try {
