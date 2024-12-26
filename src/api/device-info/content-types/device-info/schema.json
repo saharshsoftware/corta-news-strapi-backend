@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "device_infos",
+  "info": {
+    "singularName": "device-info",
+    "pluralName": "device-infos",
+    "displayName": "DeviceInfo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "deviceId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "os": {
+      "type": "string",
+      "required": true
+    },
+    "fcmToken": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

@@ -1155,6 +1155,40 @@ export interface ApiCronJobCronJob extends Schema.CollectionType {
   };
 }
 
+export interface ApiDeviceInfoDeviceInfo extends Schema.CollectionType {
+  collectionName: 'device_infos';
+  info: {
+    singularName: 'device-info';
+    pluralName: 'device-infos';
+    displayName: 'DeviceInfo';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    deviceId: Attribute.String & Attribute.Required & Attribute.Unique;
+    os: Attribute.String & Attribute.Required;
+    fcmToken: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::device-info.device-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::device-info.device-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiEntityEntity extends Schema.CollectionType {
   collectionName: 'entities';
   info: {
@@ -2005,6 +2039,7 @@ declare module '@strapi/types' {
       'api::contact-user.contact-user': ApiContactUserContactUser;
       'api::country.country': ApiCountryCountry;
       'api::cron-job.cron-job': ApiCronJobCronJob;
+      'api::device-info.device-info': ApiDeviceInfoDeviceInfo;
       'api::entity.entity': ApiEntityEntity;
       'api::feed-source.feed-source': ApiFeedSourceFeedSource;
       'api::footer.footer': ApiFooterFooter;
