@@ -11,9 +11,22 @@
       "enum": [
         "EN",
         "AR",
-        "ES",
         "HI",
-        "UR"
+        "UR",
+        "es-PR",
+        "es-AR",
+        "es-CL",
+        "es-CO",
+        "es-EC",
+        "es-PY",
+        "es-PE",
+        "es-UY",
+        "es-VE",
+        "es-CR",
+        "es-GT",
+        "es-SV",
+        "es-CU",
+        "es-DO"
       ]
     },
     "name": {

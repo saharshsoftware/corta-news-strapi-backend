@@ -1248,6 +1248,9 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
       'api::country.country'
     >;
     sitemapLinks: Attribute.JSON & Attribute.Required;
+    note: Attribute.Text;
+    isValidNewsPostURL: Attribute.Text;
+    isValidSitemapURL: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

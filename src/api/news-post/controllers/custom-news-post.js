@@ -1,6 +1,6 @@
 module.exports = {
   async fetchNews(ctx) {
-    const { country, includedCategories, excludedCategories, includedTypes = 'news', excludedTypes, excludeNewsIds } = ctx.query;
+    const { country, includedCategories, excludedCategories, includedTypes = 'news', excludedTypes, excludeNewsIds, language } = ctx.query;
     let { page = 1, pageSize = 40 } = ctx.query;
     page = parseInt(page, 10);
     pageSize = parseInt(pageSize, 10);

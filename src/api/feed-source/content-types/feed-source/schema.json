@@ -38,6 +38,15 @@
     "sitemapLinks": {
       "type": "json",
       "required": true
+    },
+    "note": {
+      "type": "text"
+    },
+    "isValidNewsPostURL": {
+      "type": "text"
+    },
+    "isValidSitemapURL": {
+      "type": "text"
     }
   }
 }
