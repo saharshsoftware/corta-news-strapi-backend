@@ -40,10 +40,10 @@ export interface ComponentsLanguage extends Schema.Component {
   attributes: {
     code: Attribute.Enumeration<
       [
-        'EN',
-        'AR',
-        'HI',
-        'UR',
+        'en',
+        'ar',
+        'hi',
+        'ur',
         'es-PR',
         'es-AR',
         'es-CL',
@@ -59,7 +59,23 @@ export interface ComponentsLanguage extends Schema.Component {
         'es-CU',
         'es-DO',
         'es-MX',
-        'es-PA'
+        'es-PA',
+        'en-PR',
+        'en-AR',
+        'en-CL',
+        'en-CO',
+        'en-EC',
+        'en-PY',
+        'en-PE',
+        'en-UY',
+        'en-VE',
+        'en-CR',
+        'en-GT',
+        'en-SV',
+        'en-CU',
+        'en-DO',
+        'en-MX',
+        'en-PA'
       ]
     >;
     name: Attribute.Enumeration<
