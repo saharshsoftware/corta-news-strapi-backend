@@ -57,7 +57,9 @@ export interface ComponentsLanguage extends Schema.Component {
         'es-GT',
         'es-SV',
         'es-CU',
-        'es-DO'
+        'es-DO',
+        'es-MX',
+        'es-PA'
       ]
     >;
     name: Attribute.Enumeration<
