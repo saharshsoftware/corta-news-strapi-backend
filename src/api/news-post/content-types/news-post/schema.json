@@ -19,7 +19,8 @@
     },
     "imageURL": {
       "type": "string",
-      "private": true
+      "private": true,
+      "maxLength": 1000
     },
     "publicationDate": {
       "type": "datetime"
