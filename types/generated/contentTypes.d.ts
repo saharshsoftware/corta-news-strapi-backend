@@ -761,6 +761,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     >;
     photo: Attribute.Media;
     name: Attribute.String;
+    isAdmin: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

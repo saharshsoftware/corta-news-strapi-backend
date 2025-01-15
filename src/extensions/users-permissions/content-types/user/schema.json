@@ -75,6 +75,10 @@
     },
     "name": {
       "type": "string"
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
