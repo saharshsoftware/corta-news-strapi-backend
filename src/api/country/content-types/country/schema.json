@@ -4,7 +4,8 @@
   "info": {
     "singularName": "country",
     "pluralName": "countries",
-    "displayName": "Country"
+    "displayName": "Country",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,18 +21,24 @@
       "component": "components.language"
     },
     "flag": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "activationDate": {
       "type": "date",
       "private": true
+    },
+    "onlyAdmin": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

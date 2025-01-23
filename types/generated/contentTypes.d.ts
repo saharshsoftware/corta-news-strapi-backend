@@ -1089,6 +1089,7 @@ export interface ApiCountryCountry extends Schema.CollectionType {
     singularName: 'country';
     pluralName: 'countries';
     displayName: 'Country';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1098,6 +1099,9 @@ export interface ApiCountryCountry extends Schema.CollectionType {
     languages: Attribute.Component<'components.language', true>;
     flag: Attribute.Media;
     activationDate: Attribute.Date & Attribute.Private;
+    onlyAdmin: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
