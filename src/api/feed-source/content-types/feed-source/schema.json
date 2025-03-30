@@ -47,6 +47,10 @@
     },
     "isValidSitemapURL": {
       "type": "text"
+    },
+    "usePuppeteer": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

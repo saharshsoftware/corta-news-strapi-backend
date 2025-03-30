@@ -1256,6 +1256,7 @@ export interface ApiFeedSourceFeedSource extends Schema.CollectionType {
     note: Attribute.Text;
     isValidNewsPostURL: Attribute.Text;
     isValidSitemapURL: Attribute.Text;
+    usePuppeteer: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1513,6 +1514,7 @@ export interface ApiNewsLinkNewsLink extends Schema.CollectionType {
       'oneToOne',
       'api::feed-source.feed-source'
     >;
+    imageURL: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
