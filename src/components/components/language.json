@@ -13,6 +13,13 @@
         "ar",
         "hi",
         "ur",
+        "es",
+        "zh",
+        "bn",
+        "ru",
+        "pt",
+        "ja",
+        "fr",
         "es-PR",
         "es-AR",
         "es-CL",
@@ -54,7 +61,13 @@
         "English",
         "Arabic",
         "Urdu",
-        "Spanish"
+        "Spanish",
+        "Mandarin Chinese",
+        "Bengali",
+        "Portuguese",
+        "Russian",
+        "Japanese",
+        "French"
       ]
     }
   }

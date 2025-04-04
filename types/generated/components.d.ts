@@ -44,6 +44,13 @@ export interface ComponentsLanguage extends Schema.Component {
         'ar',
         'hi',
         'ur',
+        'es',
+        'zh',
+        'bn',
+        'ru',
+        'pt',
+        'ja',
+        'fr',
         'es-PR',
         'es-AR',
         'es-CL',
@@ -79,7 +86,19 @@ export interface ComponentsLanguage extends Schema.Component {
       ]
     >;
     name: Attribute.Enumeration<
-      ['Hindi', 'English', 'Arabic', 'Urdu', 'Spanish']
+      [
+        'Hindi',
+        'English',
+        'Arabic',
+        'Urdu',
+        'Spanish',
+        'Mandarin Chinese',
+        'Bengali',
+        'Portuguese',
+        'Russian',
+        'Japanese',
+        'French'
+      ]
     >;
   };
 }
